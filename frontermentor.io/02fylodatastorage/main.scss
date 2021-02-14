@@ -1,0 +1,236 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+:root {
+  /* Colors Neutral */
+  --PaleBlue: hsl(243, 100%, 93%);
+  --GrayishBlue: hsl(229, 7%, 55%);
+  --DarkBlue: hsl(228, 56%, 26%);
+  --VeryDarkBlue: hsl(229, 57%, 11%);
+  /* Colors Gradient */
+  --Gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+  font-size: 62.5%;
+  font-family: Raleway, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.background {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-image: url("./images/bg-mobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.storage {
+  width: 100%;
+  margin: 0 2rem;
+
+  &__one,
+  &__two {
+    background-color: var(--DarkBlue);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    // color: #fff;
+  }
+
+  &__one {
+    padding: 4.5rem;
+    border-top-right-radius: 30%;
+  }
+  &__two {
+    position: relative;
+    padding: 3rem;
+    color: var(--PaleBlue);
+  }
+
+  &__buttons {
+    margin-top: 2rem;
+    display: inline-flex;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: var(--VeryDarkBlue);
+    margin-right: 2rem;
+  }
+
+  &__title {
+    display: block;
+    text-align: center;
+    font-size: 1.4rem;
+
+    & > span {
+      font-weight: 700;
+    }
+  }
+
+  &__progress {
+    position: relative;
+    height: 20px;
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    background-color: var(--VeryDarkBlue);
+
+    &-fill {
+      position: absolute;
+      top: 3px;
+      left: 4px;
+      width: 80%;
+      height: 14px;
+      border-radius: 10px;
+      // margin: 1rem;
+      background: linear-gradient(
+        90deg,
+        hsl(6, 100%, 80%),
+        hsl(335, 100%, 65%)
+      );
+    }
+    &-ball {
+      position: absolute;
+      top: 4.5px;
+      right: calc(20% - 2px);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+  }
+
+  &__resume {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  &__size {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 160px;
+    top: inherit;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    color: var(--GrayishBlue);
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #fff;
+    text-align: center;
+  }
+  &__size > .capacity {
+    font-size: 3.5rem;
+    color: var(--VeryDarkBlue);
+  }
+  &__size > .details {
+    margin-left: 0.5rem;
+    letter-spacing: 0.12rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 80%;
+  }
+
+  .storage {
+    &__one {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6rem;
+
+      border-radius: 10px 40px 0 10px;
+    }
+
+    &__buttons {
+      margin-top: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    background-color: var(--VeryDarkBlue);
+  }
+  .container {
+    max-width: 100%;
+  }
+  .storage {
+    // border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    &__one {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      // width: 300px;
+    }
+    &__two {
+      width: 500px;
+      height: 140px;
+      bottom: -60px;
+    }
+
+    &__size {
+      top: -40px;
+      left: 55%;
+      border-radius: 10px 10px 0 10px;
+    }
+    &__size::before {
+      content: "";
+      height: 20px;
+      width: 20px;
+      background-color: #fff;
+      position: absolute;
+      right: -0.4px;
+      bottom: -19.5px;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+
+    &__title {
+      text-align: left;
+    }
+  }
+
+  .background {
+    position: absolute;
+    top: 50vh;
+    height: 50vh;
+    background-image: url("./images/bg-desktop.png");
+  }
+}
